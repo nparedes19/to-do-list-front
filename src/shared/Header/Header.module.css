@@ -1,0 +1,21 @@
+.header {
+  background-color: #00aaff; 
+  padding: 0rem 8rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+}
+.link {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.logo{
+    width: 90px;
+}
