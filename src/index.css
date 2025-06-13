@@ -25,7 +25,8 @@ a:hover {
 body, html {
   margin: 0;
   padding: 0;
-  background-color: #222; 
+  width: 100%;
+  background-color: #242424;
 }s
 
 h1 {
