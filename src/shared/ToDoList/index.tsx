@@ -10,8 +10,6 @@ interface Task {
 
 function ToDoList(){
     const [tasks, setTasks] = useState<Task[]>([])
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         console.log('Estado tasks actualizado:', tasks);
@@ -30,14 +28,11 @@ function ToDoList(){
             return res.json() as Promise<Task[]>;
         })
         .then(data => {
-            console.log("Tareas cargadas:", data);
+            console.log("Tareas cargadas");
             setTasks(data);
-            setLoading(false);
         })
         .catch(err => {
-            console.error('Fetch error:', err);
-            setError(err.message);
-            setLoading(false);
+            console.error('Error', err);
         });
     };
 
@@ -55,7 +50,6 @@ function ToDoList(){
         })
         .catch(err => {
             console.error('Error al eliminar la tarea:', err);
-            setError(`Failed to delete task: ${err.message}`);
         });
     }
 
@@ -93,7 +87,7 @@ function ToDoList(){
                         <span className={styles.text}>{task.descripcion}</span>
                         <input className="form-check-input" type="checkbox" checked={task.completada} id="checkDefault" onChange={() => toggleComplete(task)}/>
                         <button className={styles.buttonDelete} onClick={()=>deleteTask(task.id)}>
-                            Delete
+                            Eliminar
                         </button>
                         
                     </li>

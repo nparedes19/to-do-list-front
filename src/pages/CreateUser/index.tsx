@@ -1,11 +1,13 @@
+import Footer from "../../shared/Footer";
+import FormUser from "../../shared/FormUser";
 import { Header } from "../../shared/Header";
 
 const CreateUser = () => {
-  // llamar al servicio que fetch users...
    return (
       <>
-        <Header/>
-        {/* Tu tabla de usuarios aquí */}
+       <Header/>
+       <FormUser/>
+       <Footer/>
       </>
     );
 };

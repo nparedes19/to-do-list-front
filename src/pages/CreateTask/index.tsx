@@ -1,12 +1,14 @@
+import Footer from "../../shared/Footer";
+import FormTask from "../../shared/FormTask";
 import { Header } from "../../shared/Header";
 
 const CreateTask = () => {
-  // llamar al servicio que fetch users...
   return (
     <>
-      <Header/>
-      {/* Tu tabla de usuarios aquí */}
-    </>
+       <Header/>
+       <FormTask/>
+       <Footer/>
+      </>
   );
 };
 export default CreateTask;

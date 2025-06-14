@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
-import logo from '../../assets/logo.png';
+import Logo from '../Logo';
 
 
 export function Header() {
   return (
     <header className={styles.header}>
-      < img src={logo} alt="Logo de la app" className={styles.logo} />
+        <Logo className={styles.logo} />
         <NavLink to="/tasks" className={styles.link} end>
           Tareas
         </NavLink>

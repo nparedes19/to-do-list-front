@@ -65,3 +65,66 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.table-users{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.accordion-button::after {
+  display: none !important;
+}
+
+.accordion{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.accordion-button {
+    background-color: black!important;
+    color: white !important;
+}
+
+.form-label{
+  color: white !important;
+}
+
+.formulario{
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 50px;
+}
+
+.imgUserForm{
+  width: 100%;
+  height: fit-content;
+}
+
+.buttonSend{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  font-size: 21px;
+  margin-top: 35px;
+}
+
+.subTitleForm{
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.footer{
+   margin-top: 40px !important;
+   background-color: black !important;
+}
+
+.boxForm{
+  height: 100vh;
+}
