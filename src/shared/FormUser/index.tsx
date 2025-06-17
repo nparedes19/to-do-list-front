@@ -1,11 +1,11 @@
 import SubmitButton from "../SubmitButton";
 import user from '../../assets/user.png';
 import { useState } from "react";
-import { serviceUsers } from "../../hooks/serviceUsers";
+import { useServiceUsers } from "../../hooks/useServiceUsers";
 
 
 export interface User {
-  id: number;
+  id?: number;
   nombre: string;
   telefono: string;
   correo: string | null;
@@ -18,7 +18,7 @@ function FormUser() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { createUser } = serviceUsers()
+  const { createUser } = useServiceUsers()
 
     const createUserForm = async () => {
         try {
@@ -35,26 +35,26 @@ function FormUser() {
 
 return (
     <div className="d-flex boxForm">
-        <div className="w-50">
+        <div className="w-50 d-flex">
             < img src={user} alt="Logo de la app" className="imgUserForm"/>
         </div>
         <form className="formulario w-50" onSubmit={createUserForm}>
             <h2 className="subTitleForm">Crea tu usuario!</h2>
             <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Nombre</label>
-                <input type="text" className="form-control" id="exampleInputEmail1" onChange={(e) => setNombre(e.target.value)} />
+                <label htmlFor="name" className="form-label">Nombre</label>
+                <input type="text" className="form-control" id="name" onChange={(e) => setNombre(e.target.value)} />
             </div>
             <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Teléfono</label>
-                <input type="number" className="form-control" id="exampleInputEmail1" onChange={(e) => setTelefono(e.target.value)}  />
+                <label htmlFor="phone" className="form-label">Teléfono</label>
+                <input type="number" className="form-control" id="phone" onChange={(e) => setTelefono(e.target.value)}  />
             </div>
             <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setEmail(e.target.value)}/>
+                <label htmlFor="email" className="form-label">Email address</label>
+                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" onChange={(e) => setEmail(e.target.value)}/>
             </div>
             <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)}/>
+                <label htmlFor="password" className="form-label">Password</label>
+                <input type="password" className="form-control" id="password" onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <SubmitButton text="Crear usuario"/>
         </form>

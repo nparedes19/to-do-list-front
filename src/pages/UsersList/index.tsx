@@ -1,15 +1,15 @@
 import { Header } from "../../shared/Header";
-import { serviceUsers } from '../../hooks/serviceUsers';
+import { useServiceUsers } from '../../hooks/useServiceUsers';
 import UserTable from "../../shared/UserTable";
 import styles from './UsersList.module.css';
-import { tasksService } from "../../hooks/tasksService";
+import { useServiceTasks } from "../../hooks/useServiceTasks";
 import Accordion from "../../shared/Accordion";
 import Footer from "../../shared/Footer";
 
 
 const UsersList = () => {
-  const { users, deleteUser } = serviceUsers()
-  const { data } = tasksService()
+  const { users, deleteUser } = useServiceUsers()
+  const { data } = useServiceTasks()
 
   return (
       <>

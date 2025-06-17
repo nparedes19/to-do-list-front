@@ -8,7 +8,7 @@ export interface User {
   contraseña: string | null;
 }
 
-export const serviceUsers = () => {
+export const useServiceUsers = () => {
 
   const [users, setUsers] = useState<User[]>([]);
 
@@ -60,8 +60,10 @@ export const serviceUsers = () => {
       if (!response.ok) {
         throw new Error('Error al crear el usuario');
       }
-      const data = await response.json();
-      return data;
+      const text = await response.text(); 
+      console.log(text);
+      window.alert(`Usuario guardado con exito`);
+      return text;
     } catch (error) {
       console.error('Error en createUser:', error);
       throw error;

@@ -2,7 +2,7 @@ import DeleteButton from "../DeleteButton";
 
 
 export interface User {
-  id: number;
+  id?: number;
   nombre: string;
   telefono: string;
   correo: string | null;
@@ -36,7 +36,7 @@ function UserTable(props: UserTableProps) {
             <td>{user.telefono}</td>
             <td>{user.correo ?? 'No disponible'}</td>
             <td>
-               <DeleteButton onClick={() => onDelete(user.id)} />
+               <DeleteButton onClick={() => onDelete(user.id!)} />
             </td>
           </tr>
         ))}

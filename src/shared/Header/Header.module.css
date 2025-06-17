@@ -5,6 +5,7 @@
   align-items: center;
   gap: 16px;
   justify-content: space-between;
+  height: 90px;
 }
 .link {
   text-decoration: none;

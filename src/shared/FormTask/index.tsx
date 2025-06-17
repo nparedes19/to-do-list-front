@@ -1,18 +1,19 @@
 import SubmitButton from "../SubmitButton";
-import user from '../../assets/user.png';
+import task from '../../assets/task.png';
 import { useState } from "react";
-import { serviceUsers } from "../../hooks/serviceUsers";
-import { tasksService } from "../../hooks/tasksService";
+import { useServiceUsers } from "../../hooks/useServiceUsers";
+import { useServiceTasks } from "../../hooks/useServiceTasks";
 
 function FormTask() {
   const [descripcion, setDescripcion] = useState('');
   const [usuario, setUsuario] = useState('');
 
 
-  const { users } = serviceUsers()
-  const { createTask } = tasksService()
+  const { users } = useServiceUsers()
+  const { createTask } = useServiceTasks()
 
-    const createTaskForm = async () => {
+    const createTaskForm = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         try {
             await createTask({descripcion:descripcion, completada:false, usuarioId:Number(usuario)})
                 console.log('Tarea creada correctamente');
@@ -25,14 +26,14 @@ function FormTask() {
 
 return (
     <div className="d-flex boxForm">
-        <div className="w-50">
-            <img src={user} alt="Imagen" className="imgUserForm"/>
+        <div className="w-50 d-flex">
+            <img src={task} alt="Imagen" className="imgTaskForm"/>
         </div>
-        <form className="formulario w-50" onSubmit={()=>{createTaskForm()}}>
+        <form className="formulario w-50" onSubmit={createTaskForm}>
             <h2 className="subTitleForm">Crea las tareas!</h2>
             <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Descripción</label>
-                <input type="text" className="form-control" id="exampleInputEmail1" onChange={(e) => setDescripcion(e.target.value)} />
+                <label htmlFor="description" className="form-label">Descripción</label>
+                <input type="text" value={descripcion} className="form-control" id="description" onChange={(e) => setDescripcion(e.target.value)} />
             </div>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Usuario</label>

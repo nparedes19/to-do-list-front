@@ -12,7 +12,7 @@ interface UserWithTasks {
   tareas: Array<Task>;
 }
 
-export function tasksService() {
+export function useServiceTasks() {
     const [data, setData] = useState<UserWithTasks[]>([]);
 
     useEffect(() => {
@@ -57,8 +57,10 @@ export function tasksService() {
         if (!response.ok) {
           throw new Error('Error al crear la tarea');
         }
-        const data = await response.json();
-        return data;
+        const text = await response.text(); 
+        console.log(text);
+        window.alert(`Tarea guardado con exito`);
+        return text;
       } catch (error) {
         console.error('Error en createTask:', error);
         throw error;

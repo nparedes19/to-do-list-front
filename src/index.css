@@ -82,6 +82,7 @@ button:focus-visible {
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .accordion-button {
@@ -101,8 +102,9 @@ button:focus-visible {
 }
 
 .imgUserForm{
-  width: 100%;
+  width: 80%;
   height: fit-content;
+  margin: auto;
 }
 
 .buttonSend{
@@ -121,10 +123,17 @@ button:focus-visible {
 }
 
 .footer{
-   margin-top: 40px !important;
    background-color: black !important;
+   height: 55px;
 }
 
 .boxForm{
   height: 100vh;
+}
+
+.imgTaskForm{
+  width: 80%;
+  margin: auto;
+  height: fit-content;
+  margin: auto;
 }
