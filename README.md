@@ -1,54 +1,18 @@
-# React + TypeScript + Vite
+# 🛠️ To-Do-List (React + Spring Boot Microservicios)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Este proyecto es una aplicación full‑stack para gestionar usuarios y tareas. El frontend está desarrollado con React y el backend consta de cinco microservicios en Java con Spring Boot, que exponen rutas REST para listar y crear usuarios y tareas.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías
+- **Frontend**: React, React Router DOM, Hooks (`useState`, `useEffect`), Hooks personalizados (`useServiceTasks`, `useServiceUsers`).
+- **Backend**: Java 17+, Spring Boot (cinco microservicios), Maven/Gradle.
+- **Comunicación**: REST + JSON.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ ## 📥 Instalación y Ejecución
 
-## Expanding the ESLint configuration
+### 1. Backend (MICROSERVICIOS)
+Antes de iniciar el frontend, **debes ejecutar los cinco microservicios del backend** en Java con Spring Boot.
+### 1. FrontEnd
+Una vez inicializados los 5 microservicios corre el comando npm run dev en la terminal para correr en FrontEnd realizado con React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
