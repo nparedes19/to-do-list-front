@@ -12,7 +12,7 @@ Este proyecto es una aplicación full‑stack para gestionar usuarios y tareas. 
 
 ### 1. Backend (MICROSERVICIOS)
 Antes de iniciar el frontend, **debes ejecutar los cinco microservicios del backend** en Java con Spring Boot.
-### 1. FrontEnd
+### 2. FrontEnd
 Una vez inicializados los 5 microservicios corre el comando npm run dev en la terminal para correr en FrontEnd realizado con React
 
 
