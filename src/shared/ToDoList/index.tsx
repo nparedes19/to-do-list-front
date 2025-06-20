@@ -10,6 +10,7 @@ interface Task {
 
 function ToDoList(){
     const [tasks, setTasks] = useState<Task[]>([])
+    const [searchTerm, setSearchTerm] = useState<string>('');
 
     useEffect(() => {
         console.log('Estado tasks actualizado:', tasks);
@@ -78,20 +79,42 @@ function ToDoList(){
         }
     };
 
+    const filteredTasks = tasks.filter(t => t.descripcion.toLowerCase().includes(searchTerm.toLowerCase()));
+
     return(
         <div className={styles.toDoList}>
             <h1 className={styles.firstTitle}>To-Do-List General</h1>
+            <div className="input-group groupSearch">
+                <input
+                    type="search"
+                    className="form-control"
+                    placeholder="Buscar tarea..."
+                    aria-label="Buscar tarea"
+                    value={searchTerm}
+                    onChange={e => setSearchTerm(e.target.value)}
+                />
+                <button className="btn btn-success" type="button" onClick={() => setSearchTerm('')}>
+                    Limpiar
+                </button>
+            </div>
             <ol>
-                {tasks.map((task,index) =>
-                    <li key={index}>
-                        <span className={styles.text}>{task.descripcion}</span>
-                        <input className="form-check-input" type="checkbox" checked={task.completada} id="checkDefault" onChange={() => toggleComplete(task)}/>
-                        <button className={styles.buttonDelete} onClick={()=>deleteTask(task.id)}>
-                            Eliminar
-                        </button>
-                        
-                    </li>
-                )}
+                {filteredTasks.map(task => (
+                <li key={task.id} className="d-flex align-items-center mb-2">
+                    <span className="flex-grow-1">{task.descripcion}</span>
+                    <input
+                    className="form-check-input me-2"
+                    type="checkbox"
+                    checked={task.completada}
+                    onChange={() => toggleComplete(task)}
+                    />
+                    <button
+                    className={styles.buttonDelete}
+                    onClick={() => deleteTask(task.id)}
+                    >
+                    Eliminar
+                    </button>
+                </li>
+                ))}
             </ol>
         </div>
     )
